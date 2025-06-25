@@ -66,6 +66,6 @@ Here are a couple of screenshots demonstrating the application in action:
 
 ##### Application Screenshot 1
 
-![Screenshot 1](images\img1.png)
+![Screenshot 1](https://drive.google.com/file/d/1yb0A60Rq5_OEz2RGJqLH_CXbTINymAU-/view?usp=sharing)
 
-![Screenshot 2](images\img2.png)
+![Screenshot 2](https://drive.google.com/file/d/1m6EdEmKSMw00ZrXTaISc5fAehExWnz5P/view?usp=sharing)
