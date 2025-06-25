@@ -59,3 +59,13 @@ Model Training: A machine learning model is trained on the preprocessed data to 
 
 Deployment (Google Cloud Run)
 The application is deployed as a containerized service on Google Cloud Run. Cloud Run provides a fully managed, serverless platform that automatically scales the application based on demand, ensuring high availability and cost-effectiveness.
+
+
+### Screenshots
+Here are a couple of screenshots demonstrating the application in action:
+
+##### Application Screenshot 1
+
+![Screenshot 1](images\img1.png)
+
+![Screenshot 2](images\img2.png)
