@@ -1,18 +1,18 @@
 pipeline{
     agent any
 
-    environment{
+    environment {
         VENV_DIR = '.hrp'
         GCP_PROJECT = "prismatic-crow-463802-n4"
         GCLOUD_PATH = "/var/jenkins_home/google-cloud-sdk/bin"
     }
 
     stages{
-        stage('Cloning from GitHub Repo'){
+        stage('Cloning Github repo to Jenkins'){
             steps{
                 script{
-                    echo 'Cloning from Github repo'
-                    checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-token', url: 'https://github.com/maskedwolf4/Hotel-Reservation-Prediction']])
+                    echo 'Cloning Github repo to Jenkins............'
+                    checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-token', url: 'https://github.com/data-guru0/MLOPS-COURSE-PROJECT-1.git']])
                 }
             }
         }
@@ -46,15 +46,16 @@ pipeline{
 
                         gcloud auth configure-docker --quiet
 
-                        docker build -t gcr.io/${GCP_PROJECT}/hrp:latest .
+                        docker build -t gcr.io/${GCP_PROJECT}/hotel-resevation-prediction:latest .
 
-                        docker push gcr.io/${GCP_PROJECT}/hrp:latest 
+                        docker push gcr.io/${GCP_PROJECT}/hotel-resevation-prediction:latest 
 
                         '''
                     }
                 }
             }
         }
+
 
         stage('Deploy to Google Cloud Run'){
             steps{
@@ -69,8 +70,8 @@ pipeline{
 
                         gcloud config set project ${GCP_PROJECT}
 
-                        gcloud run deploy hrp \
-                            --image=gcr.io/${GCP_PROJECT}/hrp:latest \
+                        gcloud run deploy hotel-resevation-prediction \
+                            --image=gcr.io/${GCP_PROJECT}/hotel-resevation-prediction:latest \
                             --platform=managed \
                             --region=us-central1 \
                             --allow-unauthenticated
@@ -80,6 +81,6 @@ pipeline{
                 }
             }
         }
-
+        
     }
 }
