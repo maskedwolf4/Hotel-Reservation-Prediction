@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOTEL RESERVATION PREDICTION ❤️</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the Inter font and overall body background */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b2e5f; /* Dark slate gray for an aesthetic vibe */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
+            padding: 1.5rem; /* Padding around the form */
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-6">
+
+<div class="container bg-white p-8 rounded-2xl shadow-xl w-full max-w-md md:max-w-lg lg:max-w-xl">
+    <h2 class="text-4xl font-extrabold text-center mb-8 tracking-tight text-gray-900">
+        Hotel Reservation Prediction <span class="text-red-500">❤️</span>
+    </h2>
+
+    <form method="POST" class="space-y-6">
+        <!-- Lead Time -->
+        <div class="form-group">
+            <label for="lead_time" class="block text-sm font-medium text-gray-700 mb-1">Lead Time</label>
+            <input type="number" id="lead_time" name="lead_time" required
+                   class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm
+                          focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400
+                          sm:text-sm transition duration-150 ease-in-out">
+        </div>
+
+        <!-- No_of_special_request -->
+        <div class="form-group">
+            <label for="no_of_special_request" class="block text-sm font-medium text-gray-700 mb-1">No. of Special Requests</label>
+            <input type="number" id="no_of_special_request" name="no_of_special_request" required
+                   class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm
+                          focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400
+                          sm:text-sm transition duration-150 ease-in-out">
+        </div>
+
+        <!-- Avg_price_per_room -->
+        <div class="form-group">
+            <label for="avg_price_per_room" class="block text-sm font-medium text-gray-700 mb-1">Average Price Per Room</label>
+            <input type="number" id="avg_price_per_room" name="avg_price_per_room" step="0.01" required
+                   class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm
+                          focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400
+                          sm:text-sm transition duration-150 ease-in-out">
+        </div>
+
+        <!-- Arrival Month -->
+        <div class="form-group">
+            <label for="arrival_month" class="block text-sm font-medium text-gray-700 mb-1">Arrival Month</label>
+            <select id="arrival_month" name="arrival_month" required
+                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm
+                           focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400
+                           sm:text-sm transition duration-150 ease-in-out bg-white">
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+        </div>
+
+        <!-- Arrival Date -->
+        <div class="form-group">
+            <label for="arrival_date" class="block text-sm font-medium text-gray-700 mb-1">Arrival Date</label>
+            <select id="arrival_date" name="arrival_date" required
+                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm
+                           focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400
+                           sm:text-sm transition duration-150 ease-in-out bg-white">
+                <!-- Options 1 to 31 -->
+                <script>
+                    for (let i = 1; i <= 31; i++) {
+                        document.write(`<option value="${i}">${i}</option>`);
+                    }
+                </script>
+            </select>
+        </div>
+
+        <!-- Market_segment_type -->
+        <div class="form-group">
+            <label for="market_segment_type" class="block text-sm font-medium text-gray-700 mb-1">Market Segment Type</label>
+            <select id="market_segment_type" name="market_segment_type" required
+                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm
+                           focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400
+                           sm:text-sm transition duration-150 ease-in-out bg-white">
+                <option value="0">Aviation</option>
+                <option value="1">Complimentary</option>
+                <option value="2">Corporate</option>
+                <option value="3">Offline</option>
+                <option value="4">Online</option>
+            </select>
+        </div>
+
+        <!-- No_of_week_nights -->
+        <div class="form-group">
+            <label for="no_of_week_nights" class="block text-sm font-medium text-gray-700 mb-1">No. of Week Nights</label>
+            <input type="number" id="no_of_week_nights" name="no_of_week_nights" required
+                   class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm
+                          focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400
+                          sm:text-sm transition duration-150 ease-in-out">
+        </div>
+
+        <!-- No_of_weekend_nights -->
+        <div class="form-group">
+            <label for="no_of_weekend_nights" class="block text-sm font-medium text-gray-700 mb-1">No. of Weekend Nights</label>
+            <input type="number" id="no_of_weekend_nights" name="no_of_weekend_nights" required
+                   class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm
+                          focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400
+                          sm:text-sm transition duration-150 ease-in-out">
+        </div>
+
+        <!-- Type_of_meal_plan -->
+        <div class="form-group">
+            <label for="type_of_meal_plan" class="block text-sm font-medium text-gray-700 mb-1">Type of Meal Plan</label>
+            <select id="type_of_meal_plan" name="type_of_meal_plan" required
+                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm
+                           focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400
+                           sm:text-sm transition duration-150 ease-in-out bg-white">
+                <option value="0">Meal Plan 1</option>
+                <option value="1">Meal Plan 2</option>
+                <option value="2">Meal Plan 3</option>
+                <option value="3">Not Selected</option>
+            </select>
+        </div>
+
+        <!-- Room_type_reserved -->
+        <div class="form-group">
+            <label for="room_type_reserved" class="block text-sm font-medium text-gray-700 mb-1">Room Type Reserved</label>
+            <select id="room_type_reserved" name="room_type_reserved" required
+                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm
+                           focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400
+                           sm:text-sm transition duration-150 ease-in-out bg-white">
+                <option value="0">Room Type 1</option>
+                <option value="1">Room Type 2</option>
+                <option value="2">Room Type 3</option>
+                <option value="3">Room Type 4</option>
+                <option value="4">Room Type 5</option>
+                <option value="5">Room Type 6</option>
+                <option value="6">Room Type 7</option>
+            </select>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit"
+                class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-md
+                       text-lg font-semibold text-white bg-gradient-to-r from-purple-600 to-indigo-700
+                       hover:from-purple-700 hover:to-indigo-800 focus:outline-none focus:ring-2
+                       focus:ring-offset-2 focus:ring-purple-500 transition duration-300 ease-in-out transform hover:scale-105">
+            Predict
+        </button>
+    </form>
+
+    <!-- Prediction Result Display -->
+    {% if prediction is not none %}
+    <div class="result mt-8 p-4 rounded-lg text-center
+                {% if prediction == 0 %} bg-red-50 text-red-800 border border-red-400
+                {% elif prediction == 1 %} bg-green-50 text-green-800 border border-green-400
+                {% endif %}">
+        {% if prediction == 0 %}
+        <p class="text-xl font-semibold">The Customer is going to cancel his reservation</p>
+        {% elif prediction == 1 %}
+        <p class="text-xl font-semibold">The Customer is not going to cancel his reservation</p>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
