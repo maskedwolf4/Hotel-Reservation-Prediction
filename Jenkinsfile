@@ -15,15 +15,15 @@ pipeline{
             }
         }
 
-        stage('Setting up Virtual ENV for Jenkins'){
+        stage('Setting up our Virtual Environment and Installing dependancies'){
             steps{
                 script{
-                    echo 'Setting up Virtual ENV for Jenkins'
+                    echo 'Setting up our Virtual Environment and Installing dependancies............'
                     sh '''
-                    python venv -m ${VENV_DIR}
+                    python -m venv ${VENV_DIR}
                     . ${VENV_DIR}/bin/activate
                     pip install --upgrade pip
-                    pip install -e .                   
+                    pip install -e .
                     '''
                 }
             }
