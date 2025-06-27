@@ -64,8 +64,6 @@ The application is deployed as a containerized service on Google Cloud Run. Clou
 ### Screenshots
 Here are a couple of screenshots demonstrating the application in action:
 
-##### Application Screenshot 1
-
 ![Screenshot 1](https://github.com/maskedwolf4/Hotel-Reservation-Prediction/blob/main/images/img1.png)
 
 ![Screenshot 2](https://github.com/maskedwolf4/Hotel-Reservation-Prediction/blob/main/images/img2.png)
